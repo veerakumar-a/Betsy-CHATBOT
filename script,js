@@ -1,1 +1,67 @@
+const chatBody = document.getElementById("chatBody");
+const userInput = document.getElementById("userInput");
+
+function handleEnter(event) {
+    if (event.key === "Enter") {
+        sendMessage();
+    }
+}
+
+function sendMessage() {
+    const message = userInput.value.trim();
+    if (message === "") return;
+
+    addMessage(message, "user");
+    userInput.value = "";
+
+    setTimeout(() => {
+        const reply = getBotReply(message.toLowerCase());
+        addMessage(reply, "bot");
+    }, 600);
+}
+
+function addMessage(text, sender) {
+    const msgDiv = document.createElement("div");
+    msgDiv.className = `message ${sender}`;
+    msgDiv.innerText = text;
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function getBotReply(message) {
+
+    if (message.includes("hi") || message.includes("hello") || message.includes("hey")) {
+        return "Hello 👋 How can I help you today?";
+    }
+
+    if (message.includes("name")) {
+        return "My name is Betsy Chatbot 🤖";
+    }
+
+    if (message.includes("who are you")) {
+        return "I am a simple chatbot created using HTML, CSS, and JavaScript.";
+    }
+
+    if (message.includes("technology") || message.includes("tech")) {
+        return "I use HTML for structure, CSS for styling, and JavaScript for logic.";
+    }
+
+    if (message.includes("purpose") || message.includes("use")) {
+        return "I am mainly used for student projects and chatbot demonstrations.";
+    }
+
+    if (message.includes("help")) {
+        return "You can ask me about my features, purpose, or how I work.";
+    }
+
+    if (message.includes("thank")) {
+        return "You're welcome 😊";
+    }
+
+    if (message.includes("bye") || message.includes("exit")) {
+        return "Goodbye 👋 Have a great day!";
+    }
+
+    return "I'm still learning 😅 Please try asking something else.";
+}
 
