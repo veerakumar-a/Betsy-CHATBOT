@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Betsy Chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="chat-wrapper">
+
+    <div class="chat-header">
+         
+        <span>Betsy Chatbot</span>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+        <div class="message bot">Hi 👋 I'm Betsy! Ask me anything.</div>
+    </div>
+
+    <div class="chat-footer">
+        <input type="text" id="userInput" placeholder="Type your message..." onkeydown="handleEnter(event)">
+        <button onclick="sendMessage()">➤</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
 
